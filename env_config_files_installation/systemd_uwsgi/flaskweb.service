@@ -1,0 +1,10 @@
+Description=uWSGI_pricing_service
+[Service]
+ExecStart=/var/www/html/flaskweb/venv/bin/uwsgi --master --emperor /var/www/html/flaskweb/uwsgi.ini --die-on-term --uid pureudonhk --gid pureudonhk --logto /var/www/html/flaskweb/log/emperor.l
+og
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+[Install]
+WantedBy=multi-user.target
